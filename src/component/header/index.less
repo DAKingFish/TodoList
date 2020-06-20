@@ -1,10 +1,30 @@
 .app-header{
   height:40px;
   width:100%;
-  background: #272626;
+  background: #eee;
   display:flex;
   align-items: center;
+  justify-content: space-between;
   padding:0 8px;
-  box-shadow: 6px -2px 1px 0px #0e0e0e;
+  box-shadow: 6px -2px 1px 0px #b4b3b3;
   position: relative;
+  .app-header-left{
+    width:50%;
+  }
+  .app-header-right{
+    width:50%;
+    text-align: right;
+    cursor: pointer;
+  }
+}
+.app-drawer-item{
+  display: flex;
+  align-items: center;
+  margin-bottom:10px;
+  .app-drawer-item-left{
+    width:80px;
+  }
+  .app-drawer-item-right{
+    width:calc(100% - 80px);
+  }
 }

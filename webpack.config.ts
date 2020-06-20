@@ -29,7 +29,9 @@ const config = {
   externals: {
     'react': 'React',
     'react-dom': 'ReactDOM',
-    'react-router': 'ReactRouter'
+    'react-router': 'ReactRouter',
+    'antd': 'antd',
+    'moment': 'moment'
   },
   module: {
     rules: [{
@@ -44,7 +46,7 @@ const config = {
             'transform-decorators-legacy',
             'add-module-exports',
             'transform-class-properties',
-            'transform-object-rest-spread',
+            'transform-object-rest-spread'
           ]
         }
       }
@@ -83,7 +85,7 @@ const config = {
     contentBase: './www',
     proxy: [{
       context: ['/api'],
-      target: `http://${getIPAdress()}:8360`,
+      target: `http://49.233.85.54:8091`,
       pathRewrite: { '^/api': '' },
       changeOrigin: true,
       secure: true
