@@ -1,6 +1,6 @@
 import * as React from "react"
 import { observer, inject } from 'mobx-react'
-import { Switch } from 'antd'
+import { Switch ,Button} from 'antd'
 import './index.less'
 const LevelMapping = {
   1: '暂缓',
@@ -10,12 +10,16 @@ const LevelMapping = {
 @inject('UI', 'Task')
 @observer
 class Content extends React.Component<any, any> {
+  componentWillMount() {
+    this.props.Task.getTask() // 查询所有文件夹
+  }
   props: any
   constructor(props) {
     super(props)
   }
   render() {
-    const { taskList, setTask, saveTask } = this.props.Task
+    const { taskList, setTask, saveTask ,deleteTask } = this.props.Task
+    const { visable, setVisable } = this.props.UI
     return <div className='app-content'>
       <div className='app-content-item'>
         <div className='app-content-item-id'>
@@ -72,8 +76,21 @@ class Content extends React.Component<any, any> {
               />
             </div>
             <div className='app-content-item-edit'>
-              <button>编辑</button>
-              <button>删除</button>
+              <Button
+                onClick={
+                  () => {
+                    setTask(item)
+                    setVisable(true)
+                  }
+                }
+              >编辑</Button>
+              <Button
+                onClick={
+                  () => {
+                    confirm("是否删除") && deleteTask(item.id)
+                  }
+                }
+              >删除</Button>
             </div>
           </div>
         })

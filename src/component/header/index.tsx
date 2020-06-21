@@ -20,7 +20,8 @@ class Header extends React.Component<any, any> {
         end_time
       },
       setTaskByKey,
-      saveTask
+      saveTask,
+      setTask
     } = this.props.Task
     return <div className='app-header'>
       <div className='app-header-left'>
@@ -28,6 +29,14 @@ class Header extends React.Component<any, any> {
       </div>
       <div className='app-header-right' onClick={
         () => {
+          setTask({
+            id: null,
+            name: '',
+            level: 3,
+            start_time: '',
+            end_time: '',
+            status: 0
+          })
           setVisable(true)
         }
       }>
