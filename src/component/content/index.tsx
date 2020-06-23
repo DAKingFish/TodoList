@@ -87,7 +87,7 @@ class Content extends React.Component<any, any> {
               <Button
                 onClick={
                   () => {
-                    confirm("是否删除") && deleteTask(item.id)
+                    confirm("是否删除") && deleteTask(item.id)//短路设置
                   }
                 }
               >删除</Button>
