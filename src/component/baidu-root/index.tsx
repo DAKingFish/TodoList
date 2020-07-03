@@ -8,6 +8,9 @@ class BaiduRoot extends React.Component<any, any> {
   render() {
     return <div className='app-baidu-root'>
       baidu-root
+      <div className='root-top'></div>
+      <div className='root-left'></div>
+      <div className='root-right'>  </div>
     </div>
   }
 }
