@@ -1,5 +1,7 @@
 import * as React from 'react'
 import './index.less'
+import { Checkbox } from 'antd'
+import { Table } from './table'
 class BaiduRoot extends React.Component<any, any> {
   props: any
   constructor(props) {
@@ -87,39 +89,130 @@ class BaiduRoot extends React.Component<any, any> {
         active: true,
         icon: 'iconfont icon-jia',
         position: 'left',
+        width: '100px'
       },
       {
         label: '开启',
         url: '',
         active: false,
         icon: '',
-        position: ''
+        position: '',
+        width: '60px'
       },
       {
         label: '重启',
         url: '',
         icon: '',
-        position: ''
+        position: '',
+        width: '60px'
       },
       {
         label: '停止',
         url: '',
         icon: '',
-        position: ''
+        position: '',
+        width: '60px'
       },
       {
         label: '续费',
         url: '',
         icon: '',
-        position: ''
+        position: '',
+        width: '60px'
       },
       {
         label: '批量操作',
         url: '',
         icon: 'iconfont icon-xiala',
-        position: 'right'
+        position: 'right',
+        width: '100px'
       }
-    ]
+    ],
+    menus5: [{
+      label: '实例名称/ID',
+      icon: 'iconfont icon-shangxiajiantou',
+      checked: false,
+      width: 200
+    }, {
+      label: '状态',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 100
+    }, {
+      label: '支付方式',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 100
+    }, {
+      label: '支付方式1',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 100
+    }, {
+      label: '支付方2',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 100
+    }, {
+      label: '支付方式3',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 100
+    }, {
+      label: '支付方式4',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 100
+    }, {
+      label: '支付方式5',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 100
+    }, {
+      label: '操作',
+      icon: 'iconfont icon-shangxiajiantou',
+      width: 120
+    }],
+    menus6: [{
+      width: 200,
+      html: <div>
+        <Checkbox />
+        dfdffddf
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        sdsdfsdf
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        预付费
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        sdsdfsdf
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        sdsdfsdf
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        sdsdfsdf
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        sdsdfsdf
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        sdsdfsdf
+      </div>
+    }, {
+      width: 100,
+      html: <div>
+        操作
+      </div>
+    }]
   }
   render() {
     const area = '华东-苏州'
@@ -214,24 +307,30 @@ class BaiduRoot extends React.Component<any, any> {
             <div className='lab-left'>
               {
                 this.state.menus4.map(item => {
-                  () => {
-                    return <div className={item.active ? 'menu-item-active' : 'menu-item'} key={item.label}>
-                      {
-                        item.icon && <i className={item.icon} style={{
-                          position: 'absolute',
-                          right: item.position === 'right' ? 10 : 'auto',
-                          left: item.position === 'left' ? 2 : 'auto'
-                        }}>
-                        </i>
-                      }
-                      {item.label}
-                    </div>
-                  }
+                  return <div className={item.active ? 'menus4-item-active' : 'menu-item'} key={item.label} style={{
+                    width: item.width
+                  }}>
+                    {
+                      item.icon && <i className={item.icon} style={{
+                        position: 'absolute',
+                        right: item.position === 'right' ? 8 : 'auto',
+                        left: item.position === 'left' ? 8 : 'auto'
+                      }}></i>
+                    }
+                    {item.label}
+                  </div>
                 })
               }
             </div>
             <div className='lab-right'>
-              <div className='right-search'></div>
+              <div className='right-search'>
+                <div className='search-text'>
+                  <span>实例名称</span>
+                  <i className='iconfont icon-xiala'></i>
+                </div>
+                <input className='search-inp' placeholder='请输入实例名称进行搜索'></input>
+                <i className='iconfont icon-search'></i>
+              </div>
               <div className='right-down'>
                 下载全部
               </div>
@@ -240,7 +339,7 @@ class BaiduRoot extends React.Component<any, any> {
               </div>
             </div>
           </div>
-          <div className='table -title'></div>
+          <Table menus5={this.state.menus5} menus6={this.state.menus6} />
           <div className='right-page'></div>
         </div>
       </div>
